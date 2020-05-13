@@ -21,3 +21,15 @@ def find_last_num(nums: List[int], target: int) -> int:
                 max_i = i
         i += 1
     return max_i
+
+
+# 3. Search a list of ints for every occurance of a particular integer. Return a list of every index number. Empty list if not found. 
+
+def find_all_occurences(nums: List[int], target: int) -> List[int]:
+    new_list = []
+
+    for i, num in enumerate(nums):
+        if num == target:
+            new_list.append(i)
+    return new_list
+
