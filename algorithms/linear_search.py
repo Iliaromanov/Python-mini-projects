@@ -33,3 +33,10 @@ def find_all_occurences(nums: List[int], target: int) -> List[int]:
             new_list.append(i)
     return new_list
 
+
+# 4. Search a list of strings for words that start with a substring. Return the first occurance index.
+
+def find_string(words: List[str], target: str) -> int:
+    for i, word in enumerate(words):
+        if word[:len(target)] == target:
+            return i
