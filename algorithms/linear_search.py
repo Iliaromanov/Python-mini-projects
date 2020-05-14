@@ -40,3 +40,15 @@ def find_string(words: List[str], target: str) -> int:
     for i, word in enumerate(words):
         if word[:len(target)] == target:
             return i
+        
+        
+# 5. Search a list of strings for words that start with a substring. Return list of all the strings (not the index positions).
+
+def find_all_strings(words: List[str], target: str) -> List[str]:
+    targets_found = []
+
+    for word in words:
+        if word[:len(target)] == target:
+            targets_found.append(word)
+
+    return targets_found 
