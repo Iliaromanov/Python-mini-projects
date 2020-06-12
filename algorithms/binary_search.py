@@ -5,7 +5,7 @@ def binary_search(nums: List[int], target: int) -> int:
     nums.sort()
 
     left = 0
-    right = len(nums)
+    right = len(nums) - 1
 
     while left <= right:
         mid = (left + right) // 2
@@ -15,6 +15,8 @@ def binary_search(nums: List[int], target: int) -> int:
         if result == target:
             return mid
         elif result > target:
-            right = mid
+            right = mid -1
         elif result < target:
-            left = mid
+            left = mid + 1
+    
+    return -1
