@@ -116,3 +116,29 @@ def count7(n: int) -> int:
         return 1 + count7(n // 10)
     else:
         return count7(n // 10)
+
+    
+def  count8(n: int) -> int:
+    """
+    Given a non-negative int n, compute recursively (no loops) the count of the occurrences of 8 as a digit, except that an 8 with another 8 immediately to its left counts double, so 8818 yields 4. Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+    count8(8) → 1
+    count8(818) → 2
+    count8(8818) → 4
+    """
+
+    if n < 10:
+        if n == 8:
+            return 1
+        else:
+            return 0
+
+    left = n // 10 % 10
+
+    num = n % 10
+
+    if num == 8 and left == 8:
+        return 2 + count8(n // 10)
+    elif num == 8:
+        return 1 + count8(n // 10)
+    else:
+        return count8(n // 10)
