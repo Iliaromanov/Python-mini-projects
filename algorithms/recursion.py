@@ -142,3 +142,17 @@ def  count8(n: int) -> int:
         return 1 + count8(n // 10)
     else:
         return count8(n // 10)
+    
+    
+def powerN(b: int, n: int) -> int:
+    """
+    Given <b>base</b> and <b>n</b> that are both 1 or more, compute recursively (no loops) the value of base to the n power, so powerN(3, 2) is 9 (3 squared).
+    powerN(3, 1) → 3
+    powerN(3, 2) → 9
+    powerN(3, 3) → 27
+    """        
+
+    if n == 1:
+        return b
+
+    return b * powerN(b, n - 1)
