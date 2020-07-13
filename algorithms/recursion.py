@@ -196,3 +196,23 @@ def countHi(string: str) -> int:
         return 1 + countHi(string[2:])
     else:
         return countHi(string[1:])
+    
+    
+def changeXY(string: str) -> str:
+    """
+    Given a string, compute recursively (no loops) a new string where all the lowercase 'x' chars have been changed to 'y' chars.
+    changeXY("codex") → "codey"
+    changeXY("xxhixx") → "yyhiyy"
+    changeXY("xhixhix") → "yhiyhiy"
+    """
+
+    if len(string) <= 1:
+        if string == 'x':
+            return 'y'
+        else:
+            return string
+
+    if string[0] == 'x':
+        return 'y' + changeXY(string[1:])
+    else:
+        return string[0] + changeXY(string[1:])
