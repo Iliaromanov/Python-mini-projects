@@ -192,7 +192,7 @@ def countHi(string: str) -> int:
         else:
             return 0
 
-    if string[-1] == 'i' and string[-2] == 'h':
-        return 1 + countHi(string[:len(string) - 2])
+    if string[:2] == 'hi':
+        return 1 + countHi(string[2:])
     else:
-        return countHi(string[:len(string) - 1])
+        return countHi(string[1:])
