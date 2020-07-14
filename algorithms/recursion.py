@@ -216,3 +216,23 @@ def changeXY(string: str) -> str:
         return 'y' + changeXY(string[1:])
     else:
         return string[0] + changeXY(string[1:])
+    
+    
+def changePi(string: str) -> str:
+    """
+    Given a string, compute recursively (no loops) a new string where all appearances of "pi" have been replaced by "3.14".
+    changePi("xpix") → "x3.14x"
+    changePi("pipi") → "3.143.14"
+    changePi("pip") → "3.14p"
+    """
+
+    if len(string) <= 2:
+        if string == 'pi':
+            return '3.14'
+        else:
+            return string
+
+    if string[:2] == 'pi':
+        return '3.14' + changePi(string[2:])
+    else:
+        return string[0] + changePi(string[1:])
