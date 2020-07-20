@@ -236,3 +236,23 @@ def changePi(string: str) -> str:
         return '3.14' + changePi(string[2:])
     else:
         return string[0] + changePi(string[1:])
+    
+    
+def noX(string: str) -> str:
+    """
+    Given a string, compute recursively a new string where all the 'x' chars have been removed.
+    noX("xaxb") → "ab"
+    noX("abc") → "abc"
+    noX("xx") → ""
+    """
+
+    if len(string) <= 1:
+        if string =='x':
+            return ''
+        else:
+            return string
+
+    if string[0] == "x":
+        return noX(string[1:])
+    else:
+        return string[0] + noX(string[1:])
