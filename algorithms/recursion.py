@@ -281,4 +281,15 @@ def array6(nums: List[int], index: int) -> bool:
     array11([11, 11], 0) → 2
     array11([1, 2, 3, 4], 0) → 0
     """
+    
+    if i >= len(nums)-1:
+        if nums!= [] and nums[i] == 11:
+            return 1
+        else:
+            return 0
+
+    if nums[i] == 11:
+        return 1 + array11(nums, i+1)
+    else:
+        return 0 + array11(nums, i+1)
 
