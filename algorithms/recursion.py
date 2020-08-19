@@ -308,6 +308,8 @@ def array220(nums: List[int], index: int) -> bool:
         return True
     
     return array220(nums, index+1)
+
+
 def pairStar(string: str) -> str:
     """
     Given a string, compute recursively a new string where identical chars that are adjacent in the original string are separated from each other by a "*".
