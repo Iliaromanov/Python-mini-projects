@@ -338,3 +338,18 @@ def allStar(string: str) -> str:
         return string
 
     return f"{string[0]}*" + allStar(string[1:])
+
+def pairStar(string: str) -> str:
+    """
+    Given a string, compute recursively a new string where identical chars that are adjacent in the original string are separated from each other by a "*".
+    pairStar("hello") → "hel*lo"
+    pairStar("xxyy") → "x*xy*y"
+    pairStar("aaaa") → "a*a*a*a"
+    """
+    if len(string) <= 1:
+        return string
+
+    if string[0] == string[1]:
+        return f"{string[0]}*" + pairStar(string[1:])
+    else:
+        return string[0] + pairStar(string[1:])
