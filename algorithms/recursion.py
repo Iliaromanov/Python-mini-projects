@@ -353,3 +353,18 @@ def pairStar(string: str) -> str:
         return f"{string[0]}*" + pairStar(string[1:])
     else:
         return string[0] + pairStar(string[1:])
+    
+def endX(string: str) -> str:
+    """
+    Given a string, compute recursively a new string where all the lowercase 'x' chars have been moved to the end of the string.
+    endX("xxre") → "rexx"
+    endX("xxhixx") → "hixxxx"
+    endX("xhixhix") → "hihixxx"
+    """
+    if len(string) <= 1:
+        return string
+    
+    if string[0] == 'x':
+        return endX(string[1:]) + 'x'
+    else:
+        return string[0] + endX(string[1:])
