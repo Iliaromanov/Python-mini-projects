@@ -368,3 +368,18 @@ def endX(string: str) -> str:
         return endX(string[1:]) + 'x'
     else:
         return string[0] + endX(string[1:])
+    
+def countPairs(string: str) -> int:
+    """
+    We'll say that a "pair" in a string is two instances of a char separated by a char. So "AxA" the A's make a pair. Pair's can overlap, so "AxAxA" contains 3 pairs -- 2 for A and 1 for x. Recursively compute the number of pairs in the given string.
+    countPairs("axa") → 1
+    countPairs("axax") → 2
+    countPairs("axbx") → 1
+    """
+    if len(string) <= 2:
+        return 0
+
+    if string[0] == string[2]:
+        return 1 + countPairs(string[1:])
+    else:
+        return countPairs(string[1:])
