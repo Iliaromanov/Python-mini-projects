@@ -1,7 +1,7 @@
 
 def main():
+    # get the card number input from the user
     while True:
-        # get the card number input from the user
         try:
             number = input("Number: ")
             int(number)
