@@ -1,5 +1,4 @@
 
-
 def main():
     number = input("Number: ")
     card = card_type(number)
