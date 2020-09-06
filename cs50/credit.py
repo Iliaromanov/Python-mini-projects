@@ -37,7 +37,7 @@ def card_type(num: str) -> str:
     elif len(num) == 13 and int(num) // 10**12 == 4:
         return "VISA"
     
-    return "INVALID"
+    return "this INVALID"
 
 
 def validate(num: str) -> bool:
@@ -51,11 +51,25 @@ def validate(num: str) -> bool:
     even_index_digs = []
     odd_index_digs = []
     
-    for i in range(len(num)):
-        if i % 2 == 0 and i != 0:
-            even_index_digs.append(int(num[i]))
+    # loop through the card number and add digits to the even_index_digs list and odd_index_digs list accordingly
+    for i in range(len(num) - 1, -1, -2):
+        # append to the even_index_digs list
+        even_index_digs.append(int(num[i]))
+        
+        # if the digit x 2 is equal to a double-digit number append the numbers digits to the odd_index_digs list separately
+        if i != 0 and int(num[i - 1]) * 2 >= 10:
+            odd_index_digs.append(int(num[i - 1]) * 2 // 10)
+            odd_index_digs.append(int(num[i - 1]) * 2 % 10)
+        # else append the digit x 2 to the ood_index_digits list
         else:
-            odd_index_digs.append(int(num[i]))
+            odd_index_digs.append(int(num[i - 1]) * 2)
+    
+    # Luhn's formula result
+    total = sum(even_index_digs) + sum(odd_index_digs)
+    if total % 10 == 0:
+        return True
+    else:
+        return False
     
     
 if __name__ == "__main__":
