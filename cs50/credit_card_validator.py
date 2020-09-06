@@ -1,7 +1,6 @@
-
 def main():
-    # get the card number input from the user
     while True:
+        # get the card number input from the user
         try:
             number = input("Number: ")
             int(number)
@@ -63,6 +62,7 @@ def validate(num: str) -> bool:
     
     # loop through the card number and add digits to the even_index_digs list and odd_index_digs list accordingly
     for i in range(len(num) - 1, -1, -2):
+        print("i:", i)
         # append to the even_index_digs list
         even_index_digs.append(int(num[i]))
         
@@ -71,11 +71,12 @@ def validate(num: str) -> bool:
             odd_index_digs.append(int(num[i - 1]) * 2 // 10)
             odd_index_digs.append(int(num[i - 1]) * 2 % 10)
         # else append the digit x 2 to the ood_index_digits list
-        else:
+        elif i != 0:
             odd_index_digs.append(int(num[i - 1]) * 2)
     
     # Luhn's formula result
     total = sum(even_index_digs) + sum(odd_index_digs)
+    print("odd:", odd_index_digs, "even:", even_index_digs)
     if total % 10 == 0:
         return True
     else:
