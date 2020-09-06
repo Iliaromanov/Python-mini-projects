@@ -1,8 +1,18 @@
 
 def main():
-    number = input("Number: ")
+    while True:
+        # get the card number input from the user
+        try:
+            number = input("Number: ")
+            int(number)
+            break
+        except:
+            continue
+
+    # determine the card type
     card = card_type(number)
     
+    # validate the card number and print the result
     if validate(number):
         print(card)
     else:
