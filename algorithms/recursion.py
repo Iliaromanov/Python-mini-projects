@@ -414,3 +414,19 @@ def count11(string: str) -> int:
         return 1 + count11(string[2:])
     else:
         return count11(string[1:])
+  
+def stringClean(string: str) -> str:
+    """
+    Given a string, return recursively a "cleaned" string where adjacent chars that are the same have been reduced to a single char. So "yyzzza" yields "yza".
+    stringClean("yyzzza") → "yza"
+    stringClean("abbbcdd") → "abcd"
+    stringClean("Hello") → "Helo"
+    """
+
+    if len(string) <= 1:
+        return string
+
+    if string[0] != string[1]:
+        return string[0] + stringClean(string[1:])
+    else:
+        return stringClean(string[1:])
