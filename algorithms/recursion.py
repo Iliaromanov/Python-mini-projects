@@ -430,3 +430,22 @@ def stringClean(string: str) -> str:
         return string[0] + stringClean(string[1:])
     else:
         return stringClean(string[1:])
+    
+def countHi2(string: str) -> int:
+    """
+    Given a string, compute recursively the number of times lowercase "hi" appears in the string, however do not count "hi" that have an 'x' immedately before them.
+    countHi2("ahixhi") → 1
+    countHi2("ahibhi") → 2
+    countHi2("xhixhi") → 0
+    """
+
+    if len(string) <= 2:
+        if string == 'hi':
+            return 1
+        else: 
+            return 0
+
+    if string[-1:-3:-1] == 'ih' and string[-3] != 'x':
+        return 1 + countHi2(string[:len(string) - 1])
+    else:
+        return countHi2(string[:len(string) - 1])
