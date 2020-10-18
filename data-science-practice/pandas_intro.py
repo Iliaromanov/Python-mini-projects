@@ -17,3 +17,19 @@ print(df.info())
 
 # .dtype provides a data table describing the dtype of each column
 print(df.dtypes)
+
+# -------------
+# you can choose a specific column of the df to print
+print(df['Rating'])
+# or you can print multiple columns
+print(df[['App', 'Rating']])
+
+
+# -------------
+# it is also possible to retrieve specific rows using the .loc method
+print(df.loc[1:3]) # **end index is included in this case**
+
+
+# -------------
+# its possible to combine both of the previous functions
+print(df[['App', 'Rating']][1:4]) # **end index not included**
